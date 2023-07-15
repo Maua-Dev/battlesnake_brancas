@@ -1,5 +1,5 @@
 from enum import Enum
 
 class FrasesEnum(Enum):
-    HYCYBY="HYCYBY"
+    HYCYBH="HYCYBH"
     SMOKING_JOE="SMOKING_JOE"

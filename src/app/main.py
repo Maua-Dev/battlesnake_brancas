@@ -33,17 +33,29 @@ def info():
     }
 
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int):
-    return {"item_id": item_id}
+@app.post("/start")
+def start(request: dict):
+    """
+    link: https://docs.battlesnake.com/api/requests/start
+    """
+    return None
 
-@app.post("/create_item")
-def create_item(request: dict):
-    item_id = request.get("item_id")
-    name = request.get("name")
+@app.post("/end")
+def end(request: dict):
+    """
+    link: https://docs.battlesnake.com/api/requests/end
+    """
+    return None
 
-    return {"item_id": item_id,
-            "name": name}   
-
+@app.post("/move")
+def move(request: dict):
+    """
+    link: https://docs.battlesnake.com/api/requests/move
+    """
+    response = dict()
+    
+    # criação do shout 
+    message = "sou uma cobra br, não falo inglês miauu"
+    response["shout"] = message
 
 handler = Mangum(app, lifespan="off")

@@ -1,0 +1,2 @@
+class Cobra:
+    pass

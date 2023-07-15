@@ -49,3 +49,23 @@ class Test_Ponto:
 
         assert ponto == ponto2
         assert ponto != ponto3
+
+    def test_construtor_em_string_1(self):
+        ponto = Ponto(ponto_string="(1,2)")
+        assert ponto.x == 1
+        assert ponto.y == 2
+        
+    def test_construtor_em_string_2(self):
+        ponto = Ponto(ponto_string="(12,23)")
+        assert ponto.x == 12
+        assert ponto.y == 23
+        
+    def test_construtor_em_string_3(self):
+        ponto = Ponto(x=1, y=2)
+        ponto = Ponto(ponto_string=str(ponto))
+        assert ponto.x == 1
+        assert ponto.y == 2
+
+    def test_construtor_em_string_erro(self):
+        with pytest.raises(Erro):
+            Ponto(ponto_string="(x=1, y=2)")

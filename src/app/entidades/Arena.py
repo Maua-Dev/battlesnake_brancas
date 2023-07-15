@@ -1,6 +1,7 @@
 from ast import Dict
 import math
 from typing import List
+from src.app.entidades.Cobra import Cobra
 
 from src.app.entidades.Ponto import Ponto
 
@@ -13,7 +14,7 @@ class Arena:
     __width:int
     __food:List[Ponto]
     __hazards:List[Ponto]
-    __snakes:List[Dict]
+    __snakes:List[Cobra]
 
     def __init__(self, body:dict):
         """
@@ -43,7 +44,7 @@ class Arena:
         self.__width = body["width"]
         self.__food = [Ponto(x=ponto['x'], y=ponto['y']) for ponto in body["food"]]
         self.__hazards = [Ponto(x=ponto['x'], y=ponto['y']) for ponto in body["hazards"]]
-        self.__snakes = body["snakes"]
+        self.__snakes = [Cobra(body=body_cobra) for body_cobra in body["snakes"]]
     
     def retorna_centro(self) -> List[Ponto]:
         retorno = list()
@@ -61,4 +62,14 @@ class Arena:
     def retorna_comidas(self) -> List[Ponto]:
         return self.__food
 
+    def retorna_perigos(self) -> List[Ponto]:
+        """
+        perigos: hazard, cobras, redondezas da cabeça
+        """
+        retorno = list()
+        retorno.extend(self.__hazards)
+        retorno.extend(self.__snakes)
+        for cobra in self.__snakes:
+            retorno.extend(cobra.retorna_redondezas_da_cabeca(altura_max=self.__height, largura_max=self.__width))
+        return list(set(retorno))
 

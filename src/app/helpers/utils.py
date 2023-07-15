@@ -1,4 +1,6 @@
 import random
+from typing import List
+from src.app.entidades.Ponto import Ponto
 
 from src.app.enums.frases_enum import FrasesEnum
 class Utils:
@@ -15,3 +17,8 @@ class Utils:
     @staticmethod
     def escolhe_conjunto_de_frases() -> str:   
         return random.choice(list(FrasesEnum)).value.lower()
+    
+    @staticmethod
+    def ponto_uniq(l: List[Ponto]) -> List[Ponto]:
+        l_str = list(set([str(ponto) for ponto in l]))
+        return [Ponto(ponto_string=ponto) for ponto in l_str]

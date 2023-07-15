@@ -3,6 +3,27 @@ from src.app.entidades.Arena import Arena
 from src.app.entidades.Ponto import Ponto
 from src.app.helpers.erro import Erro
 
+COBRA = {
+            "id": "totally-unique-snake-id",
+            "name": "Sneky McSnek Face",
+            "health": 54,
+            "body": [
+                {"x": 0, "y": 0}, 
+                {"x": 1, "y": 0}, 
+                {"x": 2, "y": 0}
+            ],
+            "latency": "123",
+            "head": {"x": 0, "y": 0},
+            "length": 3,
+            "shout": "why are we shouting??",
+            "squad": "1",
+            "customizations":{
+                "color":"#26CF04",
+                "head":"smile",
+                "tail":"bolt"
+            }
+        }
+
 class Test_Arena:
     def test_arena(self):
         body = {
@@ -19,9 +40,7 @@ class Test_Arena:
                 {"x": 0, "y": 2}
             ],
             "snakes": [
-                {"id": "snake-one"},
-                {"id": "snake-two"},
-                {"id": "snake-three"}
+                COBRA
             ]
         }
         arena = Arena(body=body)
@@ -42,9 +61,7 @@ class Test_Arena:
                 {"x": 0, "y": 2}
             ],
             "snakes": [
-                {"id": "snake-one"},
-                {"id": "snake-two"},
-                {"id": "snake-three"}
+                COBRA
             ]
         }
         arena = Arena(body=body)
@@ -76,9 +93,7 @@ class Test_Arena:
                 {"x": 0, "y": 2}
             ],
             "snakes": [
-                {"id": "snake-one"},
-                {"id": "snake-two"},
-                {"id": "snake-three"}
+                COBRA
             ]
         }
         arena = Arena(body=body)
@@ -110,9 +125,7 @@ class Test_Arena:
                 {"x": 0, "y": 2}
             ],
             "snakes": [
-                {"id": "snake-one"},
-                {"id": "snake-two"},
-                {"id": "snake-three"}
+                COBRA
             ]
         }
         arena = Arena(body=body)
@@ -144,9 +157,7 @@ class Test_Arena:
                 {"x": 0, "y": 2}
             ],
             "snakes": [
-                {"id": "snake-one"},
-                {"id": "snake-two"},
-                {"id": "snake-three"}
+                COBRA
             ]
         }
         arena = Arena(body=body)
@@ -178,9 +189,7 @@ class Test_Arena:
                 {"x": 0, "y": 2}
             ],
             "snakes": [
-                {"id": "snake-one"},
-                {"id": "snake-two"},
-                {"id": "snake-three"}
+                COBRA
             ]
         }
         arena = Arena(body=body)

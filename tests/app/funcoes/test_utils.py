@@ -1,6 +1,6 @@
 
 from src.app.enums.frases_enum import FrasesEnum
-from src.app.funcoes.utils import Utils
+from src.app.helpers.utils import Utils
 
 
 class Test_Utils:

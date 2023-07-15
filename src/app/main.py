@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from mangum import Mangum
 
+from src.app.helpers.utils import Utils
+
 app = FastAPI()
 
 """
@@ -38,14 +40,14 @@ def start(request: dict):
     """
     link: https://docs.battlesnake.com/api/requests/start
     """
-    return None
+    return {"body": "me ignora né safado"}
 
 @app.post("/end")
 def end(request: dict):
     """
     link: https://docs.battlesnake.com/api/requests/end
     """
-    return None
+    return {"body": "espero que tenha ganhado, minha cobra é insana"}
 
 @app.post("/move")
 def move(request: dict):
@@ -55,7 +57,8 @@ def move(request: dict):
     response = dict()
     
     # criação do shout 
-    message = "sou uma cobra br, não falo inglês miauu"
+    message = Utils.escolhe_frase()
+
     response["shout"] = message
 
 handler = Mangum(app, lifespan="off")

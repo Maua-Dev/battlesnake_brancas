@@ -61,7 +61,6 @@ class Test_Arena:
         ]        
         assert all([centro[i] == esperado[i] for i in range(4)])
 
-
     def test_arena_centro_2(self):
         body = {
             "height": 6,
@@ -164,6 +163,32 @@ class Test_Arena:
         ]        
         assert all([centro[i] == esperado[i] for i in range(4)])
 
+    def test_arena_comida(self):
+        body = {
+            "height": 12,
+            "width": 12,
+            "food": [
+                {"x": 5, "y": 5}, 
+                {"x": 9, "y": 0}, 
+                {"x": 2, "y": 6}
+            ],
+            "hazards": [
+                {"x": 0, "y": 0}, 
+                {"x": 0, "y": 1}, 
+                {"x": 0, "y": 2}
+            ],
+            "snakes": [
+                {"id": "snake-one"},
+                {"id": "snake-two"},
+                {"id": "snake-three"}
+            ]
+        }
+        arena = Arena(body=body)
+        comidas = arena.retorna_comidas()
+        assert len(comidas) == 3
+        
+        esperado = [Ponto(x=5,y=5), Ponto(x=9,y=0), Ponto(x=2,y=6)]
+        assert all([comidas[i] == esperado[i] for i in range(3)])
 
     
 

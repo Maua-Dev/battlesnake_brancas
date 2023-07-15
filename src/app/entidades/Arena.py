@@ -57,5 +57,8 @@ class Arena:
         retorno.append(Ponto(x=baixo_esquerda.x+1, y=baixo_esquerda.y+1))        
         
         return retorno
+    
+    def retorna_comidas(self) -> List[Ponto]:
+        return self.__food
 
 

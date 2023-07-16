@@ -46,15 +46,16 @@ class Cobra:
     
 
     def retorna_redondezas_da_cabeca(self, altura_max: int, largura_max: int) -> List[Ponto]:
-        retorno = list()
-        if self.__head.x-1 >= 0: retorno.append(Ponto(x=self.__head.x-1, y=self.__head.y)) 
-        retorno.append(Ponto(x=self.__head.x+1, y=self.__head.y))
-        if self.__head.y-1 >= 0: retorno.append(Ponto(x=self.__head.x, y=self.__head.y-1))
-        retorno.append(Ponto(x=self.__head.x, y=self.__head.y+1))
+        redondezas = list()
+        if self.__head.x-1 >= 0: redondezas.append(Ponto(x=self.__head.x-1, y=self.__head.y)) 
+        redondezas.append(Ponto(x=self.__head.x+1, y=self.__head.y))
+        if self.__head.y-1 >= 0: redondezas.append(Ponto(x=self.__head.x, y=self.__head.y-1))
+        redondezas.append(Ponto(x=self.__head.x, y=self.__head.y+1))
 
-        for ponto in retorno:
-            if ponto.x >= largura_max or ponto.y >= altura_max:
-                retorno.remove(ponto)
+        retorno = list()
+        for ponto in redondezas:
+            if not (ponto.x >= largura_max or ponto.y >= altura_max):
+                retorno.append(ponto)
 
         return retorno
 

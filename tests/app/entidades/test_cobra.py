@@ -155,3 +155,109 @@ class Test_Cobra:
         ]
         assert len(perigos) == len(esperado)
         assert all([p in esperado for p in perigos])
+
+    def test_cobra_perigos_2(self):
+        cobra = Cobra(body={
+            "id": "totally-unique-snake-id",
+            "name": "Sneky McSnek Face",
+            "health": 54,
+            "body": [
+                {"x": 0, "y": 0}, 
+                {"x": 1, "y": 0}, 
+                {"x": 2, "y": 0}, 
+                {"x": 0, "y": 1}, 
+                {"x": 1, "y": 1}, 
+                {"x": 2, "y": 1}, 
+                {"x": 0, "y": 2}, 
+                {"x": 1, "y": 2}, 
+                {"x": 2, "y": 2}, 
+            ],
+            "latency": "123",
+            "head": {"x": 1, "y": 1},
+            "length": 3,
+            "shout": "why are we shouting??",
+            "squad": "1",
+            "customizations":{
+                "color":"#26CF04",
+                "head":"smile",
+                "tail":"bolt"
+            }
+        })
+    
+        perigos = cobra.retorna_perigos(altura_max=4, largura_max=4)
+        esperado = [
+            Ponto(x=0,y=0),
+            Ponto(x=1,y=0),
+            Ponto(x=2,y=0),
+            Ponto(x=0,y=1),
+            Ponto(x=1,y=1),
+            Ponto(x=2,y=1),
+            Ponto(x=0,y=2),
+            Ponto(x=1,y=2),
+            Ponto(x=2,y=2)
+        ]
+        assert len(perigos) == len(esperado)
+        assert all([p in esperado for p in perigos])
+
+    def test_cobra_perigos_3(self):
+        cobra = Cobra(body={
+            "id": "totally-unique-snake-id",
+            "name": "Sneky McSnek Face",
+            "health": 54,
+            "body": [
+                {"x": 0, "y": 0}, 
+                {"x": 1, "y": 0}, 
+                {"x": 2, "y": 0}, 
+            ],
+            "latency": "123",
+            "head": {"x": 2, "y": 0},
+            "length": 3,
+            "shout": "why are we shouting??",
+            "squad": "1",
+            "customizations":{
+                "color":"#26CF04",
+                "head":"smile",
+                "tail":"bolt"
+            }
+        })
+    
+        perigos = cobra.retorna_perigos(altura_max=1, largura_max=3)
+        esperado = [
+            Ponto(x=0,y=0),
+            Ponto(x=1,y=0),
+            Ponto(x=2,y=0),
+        ]
+        assert len(perigos) == len(esperado)
+        assert all([p in esperado for p in perigos])
+
+    def test_cobra_perigos_4(self):
+        cobra = Cobra(body={
+            "id": "totally-unique-snake-id",
+            "name": "Sneky McSnek Face",
+            "health": 54,
+            "body": [
+                {"x": 0, "y": 0}, 
+                {"x": 1, "y": 0}, 
+                {"x": 2, "y": 0}, 
+            ],
+            "latency": "123",
+            "head": {"x": 2, "y": 0},
+            "length": 3,
+            "shout": "why are we shouting??",
+            "squad": "1",
+            "customizations":{
+                "color":"#26CF04",
+                "head":"smile",
+                "tail":"bolt"
+            }
+        })
+    
+        perigos = cobra.retorna_perigos(altura_max=1, largura_max=4)
+        esperado = [
+            Ponto(x=0,y=0),
+            Ponto(x=1,y=0),
+            Ponto(x=2,y=0),
+            Ponto(x=3,y=0),
+        ]
+        assert len(perigos) == len(esperado)
+        assert all([p in esperado for p in perigos])

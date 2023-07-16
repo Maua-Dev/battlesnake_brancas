@@ -4,6 +4,7 @@ from typing import List
 from src.app.entidades.Cobra import Cobra
 
 from src.app.entidades.Ponto import Ponto
+from src.app.helpers.utils import Utils
 
 
 class Arena:
@@ -64,12 +65,13 @@ class Arena:
 
     def retorna_perigos(self) -> List[Ponto]:
         """
-        perigos: hazard, cobras, redondezas da cabeça
+        perigos: hazard, cobras, redondezas da cabeça de cada cobra, extremidades
         """
+
         retorno = list()
         retorno.extend(self.__hazards)
-        retorno.extend(self.__snakes)
         for cobra in self.__snakes:
-            retorno.extend(cobra.retorna_redondezas_da_cabeca(altura_max=self.__height, largura_max=self.__width))
-        return list(set(retorno))
+            retorno.extend(cobra.retorna_perigos(altura_max=self.__height, largura_max=self.__width))
+
+        return Utils.ponto_uniq(l=retorno)
 

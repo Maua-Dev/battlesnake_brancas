@@ -22,7 +22,7 @@ class Ponto:
             except:
                 raise Erro("Erro na conversão de string para Ponto")
 
-    def distancia(self, other):
+    def distancia(self, other) -> float:
         return round(math.sqrt((self.x - other.x)**2 + (self.y - other.y)**2), 6)
 
     def __str__(self):

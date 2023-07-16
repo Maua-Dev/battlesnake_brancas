@@ -65,3 +65,13 @@ class Cobra:
         retorno.extend(self.__body)
 
         return Utils.ponto_uniq(retorno)
+    
+    def encontra_comida_mais_perto(self, lista_de_comidas: List[Ponto]) -> Ponto:
+        if(len(lista_de_comidas)) == 0: return None # len = 0
+    
+        retorno = lista_de_comidas[0]
+        if(len(lista_de_comidas)) == 1: return retorno # len = 1
+        
+        for comida in lista_de_comidas[1:]: # len > 1
+            if(self.__head.distancia(other=comida) < self.__head.distancia(other=retorno)): retorno = comida
+        return retorno

@@ -1,7 +1,7 @@
 from typing import List
-from src.app.entidades.Arena import Arena
-from src.app.entidades.Cobra import Cobra
-from src.app.entidades.Ponto import Ponto
+from .Arena import Arena
+from .Cobra import Cobra
+from .Ponto import Ponto
 from src.app.helpers.erro import Erro
 
 

@@ -1,9 +1,9 @@
-from ast import Dict
+from typing import Dict
 import math
 from typing import List
-from src.app.entidades.Cobra import Cobra
+from .Cobra import Cobra
 
-from src.app.entidades.Ponto import Ponto
+from .Ponto import Ponto
 from src.app.helpers.utils import Utils
 
 

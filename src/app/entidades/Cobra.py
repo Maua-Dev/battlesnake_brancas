@@ -1,6 +1,6 @@
-from typing import Dict, List
+from typing import List
 
-from src.app.entidades.Ponto import Ponto
+from .Ponto import Ponto
 from src.app.helpers.utils import Utils
 
 

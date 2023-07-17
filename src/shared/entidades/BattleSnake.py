@@ -2,7 +2,7 @@ from typing import List
 from .Arena import Arena
 from .Cobra import Cobra
 from .Ponto import Ponto
-from src.app.helpers.erro import Erro
+from src.shared.helpers.erro import Erro
 
 
 class BattleSnake(Cobra):

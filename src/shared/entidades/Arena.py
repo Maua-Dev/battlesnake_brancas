@@ -1,10 +1,9 @@
-from typing import Dict
 import math
 from typing import List
 from .Cobra import Cobra
 
 from .Ponto import Ponto
-from src.app.helpers.utils import Utils
+from src.shared.helpers.utils import Utils
 
 
 class Arena:

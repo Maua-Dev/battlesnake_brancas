@@ -1,8 +1,9 @@
 import random
 from typing import List
-from src.app.entidades.Ponto import Ponto
+from src.shared.entidades.Ponto import Ponto
 
-from src.app.enums.frases_enum import FrasesEnum
+from src.shared.enums.frases_enum import FrasesEnum
+
 class Utils:
     @staticmethod
     def escolhe_frase():

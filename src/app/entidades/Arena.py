@@ -53,7 +53,7 @@ class Arena:
         y = self.__height - 1
         baixo_esquerda = Ponto(x=math.ceil((x)/2)-1, y=math.ceil((y)/2)-1)
         
-        retorno.append(baixo_esquerda)
+        retorno.append(baixo_esquerda) 
         retorno.append(Ponto(x=baixo_esquerda.x+1, y=baixo_esquerda.y))        
         retorno.append(Ponto(x=baixo_esquerda.x, y=baixo_esquerda.y+1))        
         retorno.append(Ponto(x=baixo_esquerda.x+1, y=baixo_esquerda.y+1))        

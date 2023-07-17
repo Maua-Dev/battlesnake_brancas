@@ -44,6 +44,11 @@ class Cobra:
         self.__head = Ponto(x=body["head"]["x"], y=body["head"]["y"])
         self.__length = body["length"]
     
+    def get_length(self) -> int:
+        return self.__length
+    
+    def get_head(self) -> Ponto:
+        return self.__head
 
     def retorna_redondezas_da_cabeca(self, altura_max: int, largura_max: int) -> List[Ponto]:
         redondezas = list()

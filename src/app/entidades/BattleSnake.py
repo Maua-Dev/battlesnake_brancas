@@ -48,9 +48,19 @@ class BattleSnake(Cobra):
             - ficar girando em circulos até morrer/partida acabar
 
         """
-        super().__init__(body)
+        super().__init__(body=body)
+        self.get_length()
 
-        def setar_modo(self, arena: Arena) -> None:
-            if self.__length < 4:
-                self.modo = 1
-            elif self.__head
+    def seta_modo(self, arena: Arena) -> None:
+        if self.get_length() < 4:
+            self.modo = 1
+            return None
+        
+        centros = arena.retorna_centro()
+        if str(self.get_head()) not in [str(centro) for centro in centros]:
+            self.modo = 2
+            return None
+        
+        else:
+            self.modo = 3
+            return None

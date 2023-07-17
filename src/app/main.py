@@ -1,7 +1,10 @@
 from fastapi import FastAPI
 from mangum import Mangum
 
-from src.app.helpers.utils import Utils
+from .entidades.Arena import Arena
+from .entidades.BattleSnake import BattleSnake
+
+from .helpers.utils import Utils
 
 app = FastAPI()
 
@@ -60,5 +63,13 @@ def move(request: dict):
     message = Utils.escolhe_frase()
 
     response["shout"] = message
+    
+    # movimento
+    arena = Arena(body=request["board"])
+    batalhadora = BattleSnake(body=request["you"], arena=arena)
+    batalhadora.seta_modo()
+    movimento = batalhadora.movimenta()
+    response["move"] = movimento
+    return response
 
 handler = Mangum(app, lifespan="off")

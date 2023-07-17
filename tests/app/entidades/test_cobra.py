@@ -262,7 +262,7 @@ class Test_Cobra:
         assert len(perigos) == len(esperado)
         assert all([p in esperado for p in perigos])
 
-    def test_cobra_encontra_comida_mais_perto_0(self): 
+    def test_cobra_encontra_ponto_mais_perto_0(self): 
         cobra = Cobra(body={
             "id": "totally-unique-snake-id",
             "name": "Sneky McSnek Face",
@@ -283,7 +283,7 @@ class Test_Cobra:
                 "tail":"bolt"
             }
         })
-        assert cobra.encontra_comida_mais_perto(lista_de_comidas=[]) is None
+        assert cobra.encontra_ponto_mais_perto([]) is None
     
 
     def test_cobra_encontra_comida_mais_perto_1(self): 
@@ -307,10 +307,10 @@ class Test_Cobra:
                 "tail":"bolt"
             }
         })
-        assert cobra.encontra_comida_mais_perto(lista_de_comidas=[Ponto(x=1,y=1)]) == Ponto(x=1,y=1)
+        assert cobra.encontra_ponto_mais_perto(lista_de_pontos=[Ponto(x=1,y=1)]) == Ponto(x=1,y=1)
 
 
-    def test_cobra_encontra_comida_mais_perto_1_mais(self): 
+    def test_cobra_encontra_ponto_mais_perto_1_mais(self): 
         cobra = Cobra(body={
             "id": "totally-unique-snake-id",
             "name": "Sneky McSnek Face",
@@ -338,4 +338,5 @@ class Test_Cobra:
             Ponto(x=0,y=0)
         ]
 
-        assert cobra.encontra_comida_mais_perto(lista_de_comidas=lista_de_pontos) == Ponto(x=0,y=4)
+        assert cobra.encontra_ponto_mais_perto(lista_de_pontos=lista_de_pontos) == Ponto(x=0,y=4)
+        

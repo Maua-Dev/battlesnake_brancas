@@ -43,11 +43,12 @@ body = {
                     "body": [
                         {"x": 0, "y": 1}, 
                         {"x": 1, "y": 1}, 
-                        {"x": 2, "y": 1}
+                        {"x": 2, "y": 1},
+                        {"x": 3, "y": 1}
                     ],
                     "latency": "123",
                     "head": {"x": 0, "y": 1},
-                    "length": 3,
+                    "length": 4,
                     "shout": "why are we shouting??",
                     "squad": "1",
                     "customizations":{
@@ -289,3 +290,87 @@ class Test_BattleSnake:
         assert battlesnake.modo == 1
         with pytest.raises(Erro):
             battlesnake.movimenta()
+            
+    def test_battlesnake_movimento_segundo_modo_1(self):
+        battlesnake = BattleSnake(body={
+            "id": "totally-unique-snake-id",
+            "name": "Sneky McSnek Face",
+            "health": 54,
+            "body": [
+                {"x": 0, "y": 0},
+                {"x": 1, "y": 0},
+                {"x": 2, "y": 0},
+                {"x": 3, "y": 0}
+            ],
+            "latency": "123",
+            "head": {"x": 3, "y": 0},
+            "length": 4,
+            "shout": "why are we shouting??",
+            "squad": "1",
+            "customizations":{
+                "color":"#26CF04",
+                "head":"smile",
+                "tail":"bolt"
+            }
+        }, arena=ARENA_2)
+        battlesnake.seta_modo()
+        assert battlesnake.modo == 2
+        
+        assert battlesnake.movimenta() == "right"
+        
+    def test_battlesnake_movimento_terceiro_modo_1(self):
+        battlesnake = BattleSnake(body={
+            "id": "totally-unique-snake-id",
+            "name": "Sneky McSnek Face",
+            "health": 54,
+            "body": [
+                {"x": 5, "y": 5},
+                {"x": 5, "y": 6},
+                {"x": 5, "y": 7},
+                {"x": 5, "y": 8}
+            ],
+            "latency": "123",
+            "head": {"x": 5, "y": 5},
+            "length": 4,
+            "shout": "why are we shouting??",
+            "squad": "1",
+            "customizations":{
+                "color":"#26CF04",
+                "head":"smile",
+                "tail":"bolt"
+            }
+        }, arena=ARENA)
+        battlesnake.seta_modo()
+        assert battlesnake.modo == 3
+        
+        assert battlesnake.movimenta() in ["down", "left"]
+        
+    def test_battlesnake_movimento_terceiro_modo_2(self):
+        battlesnake = BattleSnake(body={
+            "id": "totally-unique-snake-id",
+            "name": "Sneky McSnek Face",
+            "health": 54,
+            "body": [
+                {"x": 5, "y": 4},
+                {"x": 5, "y": 5},
+                {"x": 5, "y": 6},
+                {"x": 5, "y": 7}
+            ],
+            "latency": "123",
+            "head": {"x": 5, "y": 4},
+            "length": 4,
+            "shout": "why are we shouting??",
+            "squad": "1",
+            "customizations":{
+                "color":"#26CF04",
+                "head":"smile",
+                "tail":"bolt"
+            }
+        }, arena=ARENA)
+        battlesnake.seta_modo()
+        assert battlesnake.modo == 3
+        
+        assert battlesnake.movimenta() == "left"
+        
+    
+    

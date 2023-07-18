@@ -1,6 +1,6 @@
 import math
 
-from src.shared.helpers.erro import Erro
+from .erro import Erro
 
 
 

@@ -1,8 +1,8 @@
 from typing import List
-from src.shared.entidades.Arena import Arena
-from src.shared.entidades.Cobra import Cobra
-from src.shared.entidades.Ponto import Ponto
-from src.shared.helpers.erro import Erro
+from .Arena import Arena
+from .Cobra import Cobra
+from .Ponto import Ponto
+from .erro import Erro
 
 
 class BattleSnake(Cobra):

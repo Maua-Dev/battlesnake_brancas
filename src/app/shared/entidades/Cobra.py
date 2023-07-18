@@ -1,7 +1,7 @@
 from typing import List
 
-from .Ponto import Ponto
-from src.shared.helpers.utils import Utils
+from src.app.shared.entidades.Ponto import Ponto
+from src.app.shared.helpers.utils import Utils
 
 
 class Cobra:

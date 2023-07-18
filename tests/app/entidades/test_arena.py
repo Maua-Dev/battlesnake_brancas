@@ -1,5 +1,5 @@
-from src.shared.entidades.Arena import Arena
-from src.shared.entidades.Ponto import Ponto
+from src.app.shared.Arena import Arena
+from src.app.shared.Ponto import Ponto
 
 COBRA = {
             "id": "totally-unique-snake-id",

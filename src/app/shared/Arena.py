@@ -1,7 +1,8 @@
 import math
 from typing import List
 
-from src.shared.helpers.utils import Utils
+from .utils import Utils
+
 from .Cobra import Cobra
 
 from .Ponto import Ponto

@@ -1,7 +1,7 @@
 
-from src.shared.entidades.Ponto import Ponto
-from src.shared.enums.frases_enum import FrasesEnum
-from src.shared.helpers.utils import Utils
+from src.app.shared.Ponto import Ponto
+from src.app.shared.frases_enum import FrasesEnum
+from src.app.shared.utils import Utils
 
 
 class Test_Utils:

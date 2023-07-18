@@ -1,8 +1,8 @@
 import pytest
-from src.shared.entidades.Arena import Arena
-from src.shared.entidades.BattleSnake import BattleSnake
-from src.shared.entidades.Ponto import Ponto
-from src.shared.helpers.erro import Erro
+from src.app.shared.Arena import Arena
+from src.app.shared.BattleSnake import BattleSnake
+from src.app.shared.Ponto import Ponto
+from src.app.shared.erro import Erro
 
 body = {
             "height": 11,

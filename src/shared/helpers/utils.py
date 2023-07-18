@@ -1,14 +1,14 @@
 import random
 from typing import List
-from src.app.shared.entidades.Ponto import Ponto
+from src.shared.entidades.Ponto import Ponto
 
-from src.app.shared.enums.frases_enum import FrasesEnum
+from src.shared.enums.frases_enum import FrasesEnum
 
 class Utils:
     @staticmethod
     def escolhe_frase():
         conjunto = Utils.escolhe_conjunto_de_frases()
-        with open(f"src/app/shared/frases/{conjunto}.txt", 'r') as f:
+        with open(f"src/shared/frases/{conjunto}.txt", 'r') as f:
             frases = f.readlines()
             frase = random.choice(frases).replace('\n', '')
             f.close()

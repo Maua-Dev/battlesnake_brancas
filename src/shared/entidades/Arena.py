@@ -1,10 +1,10 @@
 import math
 from typing import List
 
-from src.app.shared.helpers.utils import Utils
-from src.app.shared.entidades.Cobra import Cobra
+from src.shared.helpers.utils import Utils
+from .Cobra import Cobra
 
-from src.app.shared.entidades.Ponto import Ponto
+from .Ponto import Ponto
 
 
 class Arena:

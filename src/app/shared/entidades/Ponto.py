@@ -1,6 +1,7 @@
 import math
 
-from src.app.helpers.erro import Erro
+from src.app.shared.helpers.erro import Erro
+
 
 
 class Ponto:

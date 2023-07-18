@@ -1,6 +1,6 @@
 import pytest
-from src.app.entidades.Ponto import Ponto
-from src.app.helpers.erro import Erro
+from src.app.shared.entidades.Ponto import Ponto
+from src.app.shared.helpers.erro import Erro
 
 
 class Test_Ponto:

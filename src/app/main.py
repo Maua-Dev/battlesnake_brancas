@@ -1,10 +1,10 @@
 from fastapi import FastAPI
 from mangum import Mangum
 
-from .entidades.Arena import Arena
-from .entidades.BattleSnake import BattleSnake
+from .shared.entidades.Arena import Arena
+from .shared.entidades.BattleSnake import BattleSnake
 
-from .helpers.utils import Utils
+from .shared.helpers.utils import Utils
 
 app = FastAPI()
 

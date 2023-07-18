@@ -1,5 +1,5 @@
-from src.app.entidades.Cobra import Cobra
-from src.app.entidades.Ponto import Ponto
+from src.app.shared.entidades.Cobra import Cobra
+from src.app.shared.entidades.Ponto import Ponto
 
 
 class Test_Cobra:

@@ -1,7 +1,5 @@
-import pytest
-from src.app.entidades.Arena import Arena
-from src.app.entidades.Ponto import Ponto
-from src.app.helpers.erro import Erro
+from src.app.shared.entidades.Arena import Arena
+from src.app.shared.entidades.Ponto import Ponto
 
 COBRA = {
             "id": "totally-unique-snake-id",

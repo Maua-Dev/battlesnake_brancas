@@ -297,10 +297,10 @@ class Test_BattleSnake:
             "name": "Sneky McSnek Face",
             "health": 54,
             "body": [
-                {"x": 0, "y": 0},
-                {"x": 1, "y": 0},
+                {"x": 3, "y": 0},
                 {"x": 2, "y": 0},
-                {"x": 3, "y": 0}
+                {"x": 1, "y": 0},
+                {"x": 0, "y": 0}
             ],
             "latency": "123",
             "head": {"x": 3, "y": 0},

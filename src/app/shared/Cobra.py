@@ -1,6 +1,6 @@
 from typing import List
 
-from src.app.shared.erro import Erro
+from .erro import Erro
 
 from .Ponto import Ponto
 from .utils import Utils

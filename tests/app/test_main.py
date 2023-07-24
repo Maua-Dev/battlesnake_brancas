@@ -128,7 +128,7 @@ class Test_Main:
                 ],
                 "latency": "123",
                 "head": {"x": 0, "y": 1}, 
-                "length": 3,
+                "length": 5,
                 "shout": "why are we shouting??",
                 "squad": "1",
                 "customizations":{

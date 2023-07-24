@@ -503,3 +503,46 @@ class Test_Main:
         resp = move(request=body)
         assert resp.get("move") == "up"
         assert resp.get("shout") != None
+
+    def test_move_7(self):
+        body = {
+            "board":{
+                "height": 10,
+                "width": 10,
+                "food": [
+                    {"x": 5, "y": 5}, 
+                    {"x": 9, "y": 0}, 
+                    {"x": 2, "y": 6}
+                ],
+                "hazards": [
+                ],
+                "snakes": [
+                ]
+            },
+            "you":{
+                "id": "totally-unique-snake-id",
+                "name": "Sneky McSnek Face",
+                "health": 54,
+                "body": [
+                    {"x": 4, "y": 4}, 
+                    {"x": 5, "y": 4}, 
+                    {"x": 5, "y": 5},
+                    {"x": 4, "y": 5}
+                ],
+                "latency": "123",
+                "head": {"x": 4, "y": 4}, 
+                "length": 4,
+                "shout": "why are we shouting??",
+                "squad": "1",
+                "customizations":{
+                    "color":"#26CF04",
+                    "head":"smile",
+                    "tail":"bolt"
+                }
+            }
+
+        }
+
+        resp = move(request=body)
+        assert resp.get("move") == "up"
+        assert resp.get("shout") != None

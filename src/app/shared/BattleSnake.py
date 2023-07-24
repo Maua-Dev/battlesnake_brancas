@@ -59,6 +59,10 @@ class BattleSnake(Cobra):
         self.arena = arena
 
     def seta_modo(self) -> None:
+        if self.get_length() > 4:
+            self.modo = 4
+            return None
+
         if self.get_length() < 4:
             self.modo = 1
             return None
@@ -141,7 +145,7 @@ class BattleSnake(Cobra):
 
 
 
-        if self.modo == 1: 
+        if self.modo in [1, 4]: 
             comida = self.encontra_ponto_mais_perto(lista_de_pontos=self.arena.retorna_comidas())
             return self.chega_em_ponto(possiveis_movimentos=possiveis_movimentos, ponto=comida)
 
@@ -152,6 +156,16 @@ class BattleSnake(Cobra):
             
         elif self.modo == 3:
             centros_possiveis = self.arena.retorna_centro()
+            corpo = [str(parte_corporal) for parte_corporal in self.get_body()]
+            if all([str(parte_corporal) in corpo for parte_corporal in centros_possiveis]):
+                cabeca = self.get_head()
+                rabo = self.get_body()[-1]
+                if cabeca.x == rabo.x and cabeca.y < rabo.y: return "up"
+                elif cabeca.x == rabo.x and cabeca.y > rabo.y: return "down"
+                elif cabeca.x < rabo.x and cabeca.y == rabo.y: return "right"
+                else: return "left"
+
+
 
             for centro in centros_possiveis:
                 if centro == cabeca:

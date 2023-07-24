@@ -74,12 +74,13 @@ class BattleSnake(Cobra):
         
     def chega_em_ponto(self, possiveis_movimentos: dict, ponto: Ponto) -> str:
         cabeca = self.get_head()
+        todos_os_perigos = [str(perigo) for perigo in self.arena.retorna_perigos()]
 
         for movimento in self.movimentos:
             if cabeca.x + self.movimentos[movimento][0] < 0 or cabeca.y + self.movimentos[movimento][1] < 0 or str(Ponto(
                 x=cabeca.x + self.movimentos[movimento][0],
                 y=cabeca.y + self.movimentos[movimento][1]
-            )) in [str(perigo) for perigo in self.arena.retorna_perigos()]:
+            )) in todos_os_perigos:
                 try:
                     possiveis_movimentos.pop(movimento)
                 except: pass

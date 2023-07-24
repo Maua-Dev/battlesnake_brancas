@@ -73,7 +73,7 @@ class Cobra:
 
     def retorna_perigos(self, altura_max: int, largura_max: int) -> List[Ponto]:
         retorno = list()
-        retorno.extend(self.retorna_redondezas_da_cabeca(altura_max=altura_max, largura_max=largura_max))
+        # retorno.extend(self.retorna_redondezas_da_cabeca(altura_max=altura_max, largura_max=largura_max))
         retorno.extend(self.__body)
 
         return Utils.ponto_uniq(retorno)

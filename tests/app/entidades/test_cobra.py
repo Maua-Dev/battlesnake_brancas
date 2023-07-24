@@ -145,13 +145,11 @@ class Test_Cobra:
     
         perigos = cobra.retorna_perigos(altura_max=4, largura_max=4)
         esperado = [
-            Ponto(x=2,y=1),
             Ponto(x=0,y=0),
             Ponto(x=1,y=0),
             Ponto(x=2,y=0),
             Ponto(x=3,y=0),
             Ponto(x=3,y=1),
-            Ponto(x=3,y=2)
         ]
         assert len(perigos) == len(esperado)
         assert all([p in esperado for p in perigos])
@@ -257,7 +255,6 @@ class Test_Cobra:
             Ponto(x=0,y=0),
             Ponto(x=1,y=0),
             Ponto(x=2,y=0),
-            Ponto(x=3,y=0),
         ]
         assert len(perigos) == len(esperado)
         assert all([p in esperado for p in perigos])

@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 from mangum import Mangum
+
+from src.app.shared.erro import Erro
 from .shared.utils import Utils
 
 from .shared.Arena import Arena
@@ -66,11 +68,14 @@ def move(request: dict):
     response["shout"] = message
     
     # movimento
-    arena = Arena(body=request["board"])
-    batalhadora = BattleSnake(body=request["you"], arena=arena)
-    batalhadora.seta_modo()
-    movimento = batalhadora.movimenta()
-    response["move"] = movimento
-    return response
+    try:
+        arena = Arena(body=request["board"])
+        batalhadora = BattleSnake(body=request["you"], arena=arena)
+        batalhadora.seta_modo()
+        movimento = batalhadora.movimenta()
+        response["move"] = movimento
+        return response
+    except Erro as err:
+        return {"erro": err.message}
 
 handler = Mangum(app, lifespan="off")

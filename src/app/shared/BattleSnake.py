@@ -127,6 +127,9 @@ class BattleSnake(Cobra):
             raise Erro("Corpo inválido")
         
         cabeca = self.get_head()
+        if corpo[0] != cabeca:
+            raise Erro("Cabeça não é a primeira na lista que representa o corpo da cobra")
+
         pescoco = corpo[1]
         if pescoco.x < cabeca.x and pescoco.y == cabeca.y: possiveis_movimentos.pop("left")
         elif pescoco.x > cabeca.x and pescoco.y == cabeca.y: possiveis_movimentos.pop("right")

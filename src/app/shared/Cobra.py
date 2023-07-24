@@ -1,5 +1,7 @@
 from typing import List
 
+from src.app.shared.erro import Erro
+
 from .Ponto import Ponto
 from .utils import Utils
 
@@ -45,6 +47,8 @@ class Cobra:
         self.__length = body["length"]
     
     def get_length(self) -> int:
+        if self.__length != len(self.__body):
+            raise Erro("Tamanho do corpo deveria ser igual ao parâmetro length")
         return self.__length
     
     def get_head(self) -> Ponto:

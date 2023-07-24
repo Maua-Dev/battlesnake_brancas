@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from mangum import Mangum
 
-from src.app.shared.erro import Erro
+from .shared.erro import Erro
 from .shared.utils import Utils
 
 from .shared.Arena import Arena

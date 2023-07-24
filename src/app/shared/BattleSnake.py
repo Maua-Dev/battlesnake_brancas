@@ -74,31 +74,47 @@ class BattleSnake(Cobra):
         
     def chega_em_ponto(self, possiveis_movimentos: dict, ponto: Ponto) -> str:
         cabeca = self.get_head()
-        if cabeca.x > ponto.x: possiveis_movimentos.pop("right", None)
-        elif cabeca.x < ponto.x: possiveis_movimentos.pop("left", None)
-        else:
-            possiveis_movimentos.pop("right", None)
-            possiveis_movimentos.pop("left", None)
-            
-        if cabeca.y > ponto.y: possiveis_movimentos.pop("up", None)
-        elif cabeca.y < ponto.y: possiveis_movimentos.pop("down", None)
-        else:
-            possiveis_movimentos.pop("up", None)
-            possiveis_movimentos.pop("down", None)
-            
+
         for movimento in self.movimentos:
-            if cabeca.x + self.movimentos[movimento][0] < 0 or cabeca.y + self.movimentos[movimento][1] < 0: 
-                pass
-            elif str(Ponto(
+            if cabeca.x + self.movimentos[movimento][0] < 0 or cabeca.y + self.movimentos[movimento][1] < 0 or str(Ponto(
                 x=cabeca.x + self.movimentos[movimento][0],
                 y=cabeca.y + self.movimentos[movimento][1]
             )) in [str(perigo) for perigo in self.arena.retorna_perigos()]:
-                possiveis_movimentos.pop(movimento, None)
+                try:
+                    possiveis_movimentos.pop(movimento)
+                except: pass
+
+        possiveis_movimentos = [(k, v) for k,v in possiveis_movimentos.items()]
+        chaves = [v[0] for v in possiveis_movimentos]
+
+        if "right" in chaves and "left" in chaves and cabeca.x != ponto.x:
+            direita = [val for val in possiveis_movimentos if val[0] == "right"][0]
+            esquerda = [val for val in possiveis_movimentos if val[0] == "left"][0]
+            resto = [tp for tp in possiveis_movimentos if tp[0] not in ["right", "left"]]
+            if cabeca.x > ponto.x: 
+                possiveis_movimentos = [esquerda, direita]
+                possiveis_movimentos.extend(resto)
+            elif cabeca.x < ponto.x: 
+                possiveis_movimentos = [direita, esquerda]
+                possiveis_movimentos.extend(resto)
+        
+        chaves = [v[0] for v in possiveis_movimentos]
+        if "up" in chaves and "down" in chaves and cabeca.y != ponto.y:
+                cima = [val for val in possiveis_movimentos if val[0] == "up"][0]
+                baixo = [val for val in possiveis_movimentos if val[0] == "down"][0]
+                resto = [tp for tp in possiveis_movimentos if tp[0] not in ["up", "down"]]
+                if cabeca.y > ponto.y:
+                    possiveis_movimentos = [baixo, cima]
+                    possiveis_movimentos.extend(resto)
+                elif cabeca.y < ponto.y:
+                    possiveis_movimentos = [cima, baixo]
+                    possiveis_movimentos.extend(resto)
+            
         
         if len(possiveis_movimentos) == 0:
                 raise Erro("Não há movimentos possíveis, derrota da cobra")    
             
-        return list(possiveis_movimentos.keys())[0]
+        return possiveis_movimentos[0][0]
         
     def movimenta(self) -> None:
         if self.modo == None:
